@@ -1,6 +1,5 @@
 
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,8 +11,7 @@ body{background:#050816;color:white;padding:20px;}
 .header h1{font-size:38px;color:#00ffe1;text-shadow:0 0 15px #00ffe1;}
 .header p{color:#ccc;margin-top:5px;}
 .coin-box{background:#111827;padding:20px;border-radius:20px;text-align:center;margin-bottom:20px;box-shadow:0 0 15px #00ffe1;}
-.coin-box h2{color:gold;font-size:28px;margin-bottom:5px;}
-.coin-box h3{color:#00d1ff;font-size:24px;}
+.coin-box h2{color:gold;font-size:28px;}
 .card{background:#111827;padding:18px;margin-bottom:15px;border-radius:18px;box-shadow:0 0 10px rgba(0,255,225,.3);}
 .card h3{margin-bottom:8px;}
 .btn{width:100%;padding:15px;border:none;border-radius:12px;font-size:17px;font-weight:bold;color:white;cursor:pointer;margin-top:10px;}
@@ -28,128 +26,32 @@ body{background:#050816;color:white;padding:20px;}
 </style>
 </head>
 <body>
-
 <div class="header">
 <h1>🔥 Free Diamond BD 🔥</h1>
 <p>Complete Tasks & Earn Rewards</p>
 </div>
-
 <div class="coin-box">
-<h2>🪙 Coins: <span id="coins">0</span></h2>
-<h3>💎 Diamonds: <span id="diamonds">0</span></h3>
+<h2>🪙 Coins: <span id="coins">0</span> | 💎 Diamonds: <span id="diamonds">0</span></h2>
 </div>
-
-<div class="card">
-<h3>🎁 Daily Bonus</h3>
-<p>Claim your daily reward every 24 hours.</p>
-<button class="btn daily" id="dailyBonusBtn">Claim Daily Bonus (+10)</button>
-</div>
-
-<div class="card">
-<h3>📺 Watch Ads</h3>
-<p>Watch ads and earn coins.</p>
-<button class="btn ads" id="adsBtn">Watch Ads (+20)</button>
-</div>
-
-<div class="card">
-<h3>🌍 Social Tasks</h3>
-<p>Complete social tasks and earn coins.</p>
-<button class="btn social" id="socialBtn">Social Task (+30)</button>
-</div>
-
-<div class="card">
-<h3>💎 Coins Exchange</h3>
-<p>1000 Coins = 30 Diamonds</p>
-<button class="btn exchange" id="exchangeBtn">Exchange Coins</button>
-</div>
-
-<div class="card">
-<h3>💰 Withdraw Diamonds</h3>
+<div class="card"><h3>🎁 Daily Bonus</h3><p>Claim your daily reward every 24 hours.</p><button class="btn daily" id="dailyBtn">Claim Daily Bonus (+10)</button></div>
+<div class="card"><h3>📺 Watch Ads</h3><p>Watch ads and earn coins.</p><button class="btn ads" id="adsBtn">Watch Ads (+20)</button></div>
+<div class="card"><h3>🌍 Social Tasks</h3><p>Complete social tasks and earn coins.</p><button class="btn social" id="socialBtn">Social Task (+30)</button></div>
+<div class="card"><h3>💎 Coins Exchange</h3><p>1000 Coins = 30 Diamonds</p><button class="btn exchange" id="exchangeBtn">Exchange Coins</button></div>
+<div class="card"><h3>💰 Withdraw Diamonds</h3>
 <button class="btn withdraw" id="withdraw25">25 Diamonds</button>
 <button class="btn withdraw" id="withdraw50">50 Diamonds</button>
 <button class="btn withdraw" id="withdraw100">100 Diamonds</button>
 </div>
-
-<div class="card">
-<h3>👥 Refer Friends</h3>
-<p>Reward = 50 Coins</p>
-<button class="btn refer" id="referBtn">Refer Friends</button>
-</div>
-
-<div class="footer">
-Free Diamond BD © 2026
-</div>
-
+<div class="card"><h3>👥 Refer Friends</h3><p>Reward = 50 Coins</p><button class="btn refer" id="referBtn">Refer Friends</button></div>
+<div class="footer">Free Diamond BD © 2026</div>
 <script>
-let coins = parseInt(localStorage.getItem("coins")) || 0;
-let diamonds = parseInt(localStorage.getItem("diamonds")) || 0;
-document.getElementById("coins").textContent = coins;
-document.getElementById("diamonds").textContent = diamonds;
+let coins = parseInt(localStorage.getItem('coins')) || 0;
+let diamonds = parseInt(localStorage.getItem('diamonds')) || 0;
+let dailyClaimed = localStorage.getItem('dailyClaimed') || '';function updateDisplay(){ document.getElementById('coins').textContent = coins; document.getElementById('diamonds').textContent = diamonds; localStorage.setItem('coins', coins); localStorage.setItem('diamonds', diamonds); } updateDisplay();
 
-// Daily Bonus
-document.getElementById("dailyBonusBtn").addEventListener("click", ()=>{
-    let lastClaim = localStorage.getItem("dailyBonusTime");
-    let now = new Date().getTime();
-    if(!lastClaim || now - lastClaim > 24*60*60*1000){
-        coins += 10;
-        localStorage.setItem("coins", coins);
-        localStorage.setItem("dailyBonusTime", now);
-        document.getElementById("coins").textContent = coins;
-        alert("You got +10 Coins!");
-    } else alert("You already claimed Daily Bonus!");
-});
+// Daily Bonus const dailyBtn = document.getElementById('dailyBtn'); dailyBtn.addEventListener('click', ()=>{ let today = new Date().toDateString(); if(dailyClaimed === today){ alert('You already claimed today!'); return; } coins += 10; dailyClaimed = today; localStorage.setItem('dailyClaimed', dailyClaimed); updateDisplay(); });
 
-// Watch Ads
-document.getElementById("adsBtn").addEventListener("click", ()=>{
-    coins += 20;
-    localStorage.setItem("coins", coins);
-    document.getElementById("coins").textContent = coins;
-    alert("You got +20 Coins from Ads!");
-});
-
-// Social Task
-document.getElementById("socialBtn").addEventListener("click", ()=>{
-    coins += 30;
-    localStorage.setItem("coins", coins);
-    document.getElementById("coins").textContent = coins;
-    alert("You got +30 Coins from Social Task!");
-});
-
-// Coins Exchange
-document.getElementById("exchangeBtn").addEventListener("click", ()=>{
-    if(coins >= 1000){
-        coins -= 1000;
-        diamonds += 30;
-        localStorage.setItem("coins", coins);
-        localStorage.setItem("diamonds", diamonds);
-        document.getElementById("coins").textContent = coins;
-        document.getElementById("diamonds").textContent = diamonds;
-        alert("Exchanged 1000 Coins for 30 Diamonds!");
-    } else alert("Not enough coins to exchange!");
-});
-
-// Withdraw
-document.getElementById("withdraw25").addEventListener("click", ()=>{
-    if(diamonds>=25){diamonds-=25; localStorage.setItem("diamonds",diamonds); document.getElementById("diamonds").textContent=diamonds; alert("25 Diamonds Withdrawn!");}
-    else alert("Not enough Diamonds!");
-});
-document.getElementById("withdraw50").addEventListener("click", ()=>{
-    if(diamonds>=50){diamonds-=50; localStorage.setItem("diamonds",diamonds); document.getElementById("diamonds").textContent=diamonds; alert("50 Diamonds Withdrawn!");}
-    else alert("Not enough Diamonds!");
-});
-document.getElementById("withdraw100").addEventListener("click", ()=>{
-    if(diamonds>=100){diamonds-=100; localStorage.setItem("diamonds",diamonds); document.getElementById("diamonds").textContent=diamonds; alert("100 Diamonds Withdrawn!");}
-    else alert("Not enough Diamonds!");
-});
-
-// Refer Friends
-document.getElementById("referBtn").addEventListener("click", ()=>{
-    coins += 50;
-    localStorage.setItem("coins", coins);
-    document.getElementById("coins").textContent = coins;
-    alert("You got +50 Coins from Referral!");
-});
-</script>
+// Watch Ads document.getElementById('adsBtn').addEventListener('click', ()=>{coins+=20; updateDisplay();}); // Social Tasks document.getElementById('socialBtn').addEventListener('click', ()=>{coins+=30; updateDisplay();}); // Coins Exchange document.getElementById('exchangeBtn').addEventListener('click', ()=>{ if(coins>=1000){coins-=1000; diamonds+=30; updateDisplay();} else alert('Not enough coins!'); }); // Withdraw document.getElementById('withdraw25').addEventListener('click', ()=>{ if(diamonds>=25){diamonds-=25; updateDisplay(); alert('Withdrawn 25 Diamonds!');} else alert('Not enough diamonds!');}); document.getElementById('withdraw50').addEventListener('click', ()=>{ if(diamonds>=50){diamonds-=50; updateDisplay(); alert('Withdrawn 50 Diamonds!');} else alert('Not enough diamonds!');}); document.getElementById('withdraw100').addEventListener('click', ()=>{ if(diamonds>=100){diamonds-=100; updateDisplay(); alert('Withdrawn 100 Diamonds!');} else alert('Not enough diamonds!');}); // Refer Friends document.getElementById('referBtn').addEventListener('click', ()=>{coins+=50; updateDisplay(); alert('Referral Reward +50 Coins!');}); </script>
 
 </body>
 </html>
