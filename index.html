@@ -1,6 +1,4 @@
-
-backe
-
+1
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,65 +6,15 @@ backe
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Free Diamond BD</title>
-
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
-body{
-background:#050816;
-color:white;
-padding:20px;
-}
-
-.header{
-text-align:center;
-margin-bottom:20px;
-}
-
-.header h1{
-font-size:36px;
-color:#00ffe1;
-text-shadow:0 0 15px #00ffe1;
-}
-
-.coin-box{
-background:#111827;
-padding:20px;
-border-radius:20px;
-text-align:center;
-margin-bottom:20px;
-box-shadow:0 0 15px #00ffe1;
-}
-
-.coin-box h2{
-margin:10px 0;
-}
-
-.card{
-background:#111827;
-padding:18px;
-margin-bottom:15px;
-border-radius:18px;
-box-shadow:0 0 10px rgba(0,255,225,.3);
-}
-
-.btn{
-width:100%;
-padding:15px;
-border:none;
-border-radius:12px;
-font-size:16px;
-font-weight:bold;
-cursor:pointer;
-margin-top:10px;
-color:white;
-}
-
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+body{background:#050816;color:white;padding:20px;}
+.header{text-align:center;margin-bottom:20px;}
+.header h1{font-size:36px;color:#00ffe1;text-shadow:0 0 15px #00ffe1;}
+.coin-box{background:#111827;padding:20px;border-radius:20px;text-align:center;margin-bottom:20px;box-shadow:0 0 15px #00ffe1;}
+.coin-box h2{margin:10px 0;}
+.card{background:#111827;padding:18px;margin-bottom:15px;border-radius:18px;box-shadow:0 0 10px rgba(0,255,225,.3);}
+.btn{width:100%;padding:15px;border:none;border-radius:12px;font-size:16px;font-weight:bold;cursor:pointer;margin-top:10px;color:white;}
 .login{background:linear-gradient(45deg,#6a11cb,#2575fc);}
 .daily{background:linear-gradient(45deg,#00c6ff,#0072ff);}
 .ads{background:linear-gradient(45deg,#ff512f,#dd2476);}
@@ -74,39 +22,21 @@ color:white;
 .exchange{background:linear-gradient(45deg,#f7971e,#ffd200);color:black;}
 .withdraw{background:linear-gradient(45deg,#ff416c,#ff4b2b);}
 .refer{background:linear-gradient(45deg,#fc466b,#3f5efb);}
-
-.hidden{
-display:none;
-}
-
-.notice{
-background:#1f2937;
-padding:15px;
-border-radius:15px;
-margin-bottom:10px;
-line-height:1.8;
-}
-
-.footer{
-text-align:center;
-margin-top:20px;
-color:#aaa;
-}
+.hidden{display:none;}
+.notice{background:#1f2937;padding:15px;border-radius:15px;margin-bottom:10px;line-height:1.8;}
+.footer{text-align:center;margin-top:20px;color:#aaa;}
 </style>
 </head>
 <body>
 
 <!-- CHANGE LINKS HERE -->
-
 <script>
 const DAILY_LINK="https://www.effectivecpmnetwork.com/ygppnkc5?key=dfa86117a868fec5b0c9140db57c4c1d";
-
 const AD1="https://www.effectivecpmnetwork.com/nap2s8c14?key=09af6d8d967179fdb6e1f9d6cc4d19fc";
 const AD2="https://www.effectivecpmnetwork.com/rbpr2dzxpi?key=8ef566e4a2629494544b9867e890633a";
 const AD3="https://www.effectivecpmnetwork.com/eipuzybi5x?key=c7f2a20d23ea2fb4dc15e4e4821a42b6";
 const AD4="https://www.effectivecpmnetwork.com/tgraw79k?key=71c51c3e5af143e07e87ccabe3636ece";
 const AD5="https://www.effectivecpmnetwork.com/u4swh72a?key=771fc7b6f45abf3cd607ff03da53a330";
-
 const EXCHANGE_AD="https://www.effectivecpmnetwork.com/iqtuzdz4tp?key=53e28f77ac53f8fc81e4416d70963b83";
 
 const YOUTUBE_LINK="#";
@@ -114,6 +44,22 @@ const FACEBOOK_LINK="#";
 const TIKTOK_LINK="#";
 const INSTAGRAM_LINK="#";
 const TWITTER_LINK="#";
+
+// Rewards
+const DAILY_BONUS = 10;
+const WATCH_AD_REWARD = 20;
+const SOCIAL_TASK_REWARD = 30;
+const REFERRAL_REWARD = 50;
+
+// Daily/Ads limits
+const DAILY_LIMIT = 1;
+const AD_LIMIT = 1;
+
+// LocalStorage Keys
+const LS_COINS = "fd_coins";
+const LS_DIAMONDS = "fd_diamonds";
+const LS_DAILY = "fd_daily";
+const LS_ADS = ["fd_ad1","fd_ad2","fd_ad3","fd_ad4","fd_ad5"];
 </script>
 
 <div class="header">
@@ -133,65 +79,49 @@ const TWITTER_LINK="#";
 
 <div class="card">
 <h3>🎁 Daily Bonus</h3>
-<button class="btn daily" onclick="dailyBonus()">Claim Daily Bonus (+10)</button>
+<button class="btn daily" onclick="claimDaily()">Claim Daily Bonus (+10)</button>
 </div>
 
 <div class="card">
 <h3>📺 Watch Ads</h3>
 <button class="btn ads" onclick="toggleAds()">Open Ads Tasks</button>
-
 <div id="adsBox" class="hidden">
-
-<button class="btn ads" onclick="startAd(AD1)">Watch Ad 1 (+20)</button>
-<button class="btn ads" onclick="startAd(AD2)">Watch Ad 2 (+20)</button>
-<button class="btn ads" onclick="startAd(AD3)">Watch Ad 3 (+20)</button>
-<button class="btn ads" onclick="startAd(AD4)">Watch Ad 4 (+20)</button>
-<button class="btn ads" onclick="startAd(AD5)">Watch Ad 5 (+20)</button>
-
+<button class="btn ads" onclick="startAd(AD1,0)">Watch Ad 1 (+20)</button>
+<button class="btn ads" onclick="startAd(AD2,1)">Watch Ad 2 (+20)</button>
+<button class="btn ads" onclick="startAd(AD3,2)">Watch Ad 3 (+20)</button>
+<button class="btn ads" onclick="startAd(AD4,3)">Watch Ad 4 (+20)</button>
+<button class="btn ads" onclick="startAd(AD5,4)">Watch Ad 5 (+20)</button>
 </div>
 </div>
 
 <div class="card">
-
 <h3>🌍 Social Tasks</h3>
-
-<button class="btn social" onclick="toggleSocial()">
-Open Social Tasks
-</button>
-
+<button class="btn social" onclick="toggleSocial()">Open Social Tasks</button>
 <div id="socialBox" class="hidden">
-
 <div class="notice">
 📢 Each Social Task Reward Only Once<br>
 🎁 Reward = 30 Coins<br>
 📷 Screenshot May Be Required
 </div>
-
 <button class="btn social" onclick="openLink(YOUTUBE_LINK)">YouTube</button>
 <button class="btn social" onclick="openLink(FACEBOOK_LINK)">Facebook</button>
 <button class="btn social" onclick="openLink(TIKTOK_LINK)">TikTok</button>
 <button class="btn social" onclick="openLink(INSTAGRAM_LINK)">Instagram</button>
 <button class="btn social" onclick="openLink(TWITTER_LINK)">Twitter / X</button>
-
 </div>
-
 </div>
 
 <div class="card">
 <h3>💎 Coins Exchange</h3>
 <p>1000 Coins = 30 Diamonds</p>
-<button class="btn exchange" onclick="exchangeCoins()">
-Exchange Coins
-</button>
+<button class="btn exchange" onclick="exchangeCoins()">Exchange Coins</button>
 </div>
 
 <div class="card">
 <h3>💰 Withdraw Diamonds</h3>
-
 <button class="btn withdraw">25 Diamonds</button>
 <button class="btn withdraw">50 Diamonds</button>
 <button class="btn withdraw">100 Diamonds</button>
-
 </div>
 
 <div class="card">
@@ -202,15 +132,8 @@ Exchange Coins
 
 <div id="timerCard" class="card hidden">
 <h3>⏳ Ad Timer</h3>
-
 <h1 id="timer">25</h1>
-
-<button id="claimBtn"
-class="btn daily hidden"
-onclick="claimReward()">
-🎁 Claim 20 Coins
-</button>
-
+<button id="claimBtn" class="btn daily hidden" onclick="claimAdReward()">🎁 Claim 20 Coins</button>
 </div>
 
 <div class="footer">
@@ -218,101 +141,70 @@ Free Diamond BD © 2026
 </div>
 
 <script>
-
-let coins=0;
-let diamonds=0;
+// Initialize Coins and Diamonds
+let coins = parseInt(localStorage.getItem(LS_COINS))||0;
+let diamonds = parseInt(localStorage.getItem(LS_DIAMONDS))||0;
+let lastDaily = parseInt(localStorage.getItem(LS_DAILY))||0;
+let adClaimed = LS_ADS.map(key=>parseInt(localStorage.getItem(key))||0);
 
 function updateUI(){
 document.getElementById("coins").innerText=coins;
 document.getElementById("diamonds").innerText=diamonds;
 }
 
-function toggleAds(){
-document.getElementById("adsBox").classList.toggle("hidden");
-}
+function toggleAds(){document.getElementById("adsBox").classList.toggle("hidden");}
+function toggleSocial(){document.getElementById("socialBox").classList.toggle("hidden");}
+function openLink(link){window.open(link,"_blank");}
 
-function toggleSocial(){
-document.getElementById("socialBox").classList.toggle("hidden");
-}
-
-function openLink(link){
-window.open(link,"_blank");
-}
-
-function dailyBonus(){
+// Daily Bonus
+function claimDaily(){
+let today = new Date().getDate();
+if(lastDaily === today){alert("Already claimed today");return;}
 window.open(DAILY_LINK,"_blank");
-coins+=10;
+coins+=DAILY_BONUS;
+localStorage.setItem(LS_COINS,coins);
+lastDaily=today;
+localStorage.setItem(LS_DAILY,lastDaily);
 updateUI();
-alert("Daily Bonus Claimed +10 Coins");
+alert("Daily Bonus Claimed +"+DAILY_BONUS+" Coins");
 }
 
-function startAd(link){
-
+// Watch Ads
+function startAd(link,index){
+if(adClaimed[index]===new Date().getDate()){alert("Already claimed today");return;}
 window.open(link,"_blank");
-
 document.getElementById("timerCard").classList.remove("hidden");
-
 let time=25;
-
 document.getElementById("timer").innerText=time;
-
 document.getElementById("claimBtn").classList.add("hidden");
-
 let countdown=setInterval(()=>{
-
 time--;
-
 document.getElementById("timer").innerText=time;
-
 if(time<=0){
-
 clearInterval(countdown);
-
 document.getElementById("claimBtn").classList.remove("hidden");
-
 }
-
 },1000);
 
-}
-
-function claimReward(){
-
-coins+=20;
-
+document.getElementById("claimBtn").onclick=function(){
+coins+=WATCH_AD_REWARD;
+adClaimed[index]=new Date().getDate();
+localStorage.setItem(LS_ADS[index],adClaimed[index]);
 updateUI();
-
-alert("Reward Added +20 Coins");
-
+alert("Reward Added +"+WATCH_AD_REWARD+" Coins");
 document.getElementById("claimBtn").classList.add("hidden");
-
+document.getElementById("timerCard").classList.add("hidden");
+}
 }
 
+// Exchange Coins → Diamonds
 function exchangeCoins(){
-
 window.open(EXCHANGE_AD,"_blank");
-
-if(coins>=1000){
-
-coins-=1000;
-
-diamonds+=30;
-
-updateUI();
-
-alert("30 Diamonds Added");
-
-}else{
-
-alert("Need 1000 Coins");
-
-}
-
+if(coins>=1000){coins-=1000;diamonds+=30;localStorage.setItem(LS_COINS,coins);localStorage.setItem(LS_DIAMONDS,diamonds);updateUI();alert("30 Diamonds Added");} 
+else{alert("Need 1000 Coins");}
 }
 
 updateUI();
-
 </script>
-
 </body>
 </html>
