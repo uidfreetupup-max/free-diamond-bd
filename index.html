@@ -1,80 +1,176 @@
-index.html      display:block;
-      width:90%;
-      margin:15px auto;
-      padding:16px;
-      border:none;
-      border-radius:15px;
-      font-size:18px;
-      font-weight:bold;
-      color:white;
-      cursor:pointer;
-      transition:0.3s;
-    }
 
-    .daily{
-      background:linear-gradient(45deg,#00c6ff,#0072ff);
-      box-shadow:0 0 15px #00c6ff;
-    }
 
-    .daily:hover{
-      transform:scale(1.05);
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Diamond BD</title>
 
-    .ad{
-      background:linear-gradient(45deg,#ff512f,#dd2476);
-      box-shadow:0 0 15px #ff512f;
-    }
+<style>
 
-    .ad:hover{
-      transform:scale(1.05);
-    }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
 
-    .social{
-      background:linear-gradient(45deg,#11998e,#38ef7d);
-      box-shadow:0 0 15px #38ef7d;
-    }
+body{
+background:#050816;
+color:white;
+padding:20px;
+}
 
-    .social:hover{
-      transform:scale(1.05);
-    }
+.header{
+text-align:center;
+margin-bottom:20px;
+}
 
-    .refer{
-      background:linear-gradient(45deg,#fc466b,#3f5efb);
-      box-shadow:0 0 15px #fc466b;
-    }
+.header h1{
+font-size:38px;
+color:#00ffe1;
+text-shadow:0 0 15px #00ffe1;
+}
 
-    .refer:hover{
-      transform:scale(1.05);
-    }
+.header p{
+color:#ccc;
+margin-top:5px;
+}
 
-  </style>
+.coin-box{
+background:#111827;
+padding:20px;
+border-radius:20px;
+text-align:center;
+margin-bottom:20px;
+box-shadow:0 0 15px #00ffe1;
+}
+
+.coin-box h2{
+color:gold;
+font-size:28px;
+}
+
+.card{
+background:#111827;
+padding:18px;
+margin-bottom:15px;
+border-radius:18px;
+box-shadow:0 0 10px rgba(0,255,225,.3);
+}
+
+.card h3{
+margin-bottom:8px;
+}
+
+.btn{
+width:100%;
+padding:15px;
+border:none;
+border-radius:12px;
+font-size:17px;
+font-weight:bold;
+color:white;
+cursor:pointer;
+margin-top:10px;
+}
+
+.login{
+background:linear-gradient(45deg,#6a11cb,#2575fc);
+}
+
+.daily{
+background:linear-gradient(45deg,#00c6ff,#0072ff);
+}
+
+.ads{
+background:linear-gradient(45deg,#ff512f,#dd2476);
+}
+
+.social{
+background:linear-gradient(45deg,#11998e,#38ef7d);
+}
+
+.exchange{
+background:linear-gradient(45deg,#f7971e,#ffd200);
+color:black;
+}
+
+.withdraw{
+background:linear-gradient(45deg,#ff416c,#ff4b2b);
+}
+
+.refer{
+background:linear-gradient(45deg,#fc466b,#3f5efb);
+}
+
+.footer{
+text-align:center;
+margin-top:25px;
+color:#888;
+font-size:14px;
+}
+
+</style>
 </head>
 
 <body>
 
-  <h1>🔥 Free Diamond BD 🔥</h1>
+<div class="header">
+<h1>🔥 Free Diamond BD 🔥</h1>
+<p>Complete Tasks & Earn Rewards</p>
+</div>
 
-  <div class="box">
+<div class="coin-box">
+<h2>🪙 Coins: 0</h2>
+</div>
 
-    <p class="coin">🪙 Coins: 0</p>
+<div class="card">
+<h3>🔐 Login / Signup</h3>
+<p>Create your account and start earning.</p>
+<button class="btn login">Login / Signup</button>
+</div>
 
-    <button class="btn daily">
-      🎁 Daily Reward
-    </button>
+<div class="card">
+<h3>🎁 Daily Login Bonus</h3>
+<p>Claim your daily reward every 24 hours.</p>
+<button class="btn daily">Claim Bonus</button>
+</div>
 
-    <button class="btn ad">
-      📺 Watch Ads
-    </button>
+<div class="card">
+<h3>📺 Watch Ads</h3>
+<p>Watch ads and earn coins.</p>
+<button class="btn ads">Open Ads Tasks</button>
+</div>
 
-    <button class="btn social">
-      🌍 Social Media Tasks
-    </button>
+<div class="card">
+<h3>🌍 Social Media Tasks</h3>
+<p>Follow our social media and earn rewards.</p>
+<button class="btn social">Open Social Tasks</button>
+</div>
 
-    <button class="btn refer">
-      👥 Refer Friends
-    </button>
+<div class="card">
+<h3>💎 Coins Exchange</h3>
+<p>1000 Coins = 30 Diamonds</p>
+<button class="btn exchange">Exchange Coins</button>
+</div>
 
-  </div>
+<div class="card">
+<h3>💰 Withdraw Diamonds</h3>
+<p>Available: 25 / 50 / 100 Diamonds</p>
+<button class="btn withdraw">Withdraw Now</button>
+</div>
+
+<div class="card">
+<h3>👥 Refer Friends</h3>
+<p>Invite friends and earn bonus coins.</p>
+<button class="btn refer">Refer Friends</button>
+</div>
+
+<div class="footer">
+Free Diamond BD © 2026
+</div>
 
 </body>
-</html>. ze:30p
+</html>
